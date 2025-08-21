@@ -1,0 +1,48 @@
+#snackbar {
+    visibility: hidden; /* A snackbar está escondida por padrão */
+    min-width: 285px; /* Tamanho mínimo da snackbar */
+    /*margin-left: translate(-950%); /* Ideal dividir o tamanho da DIV da snackbar por 2 */
+    background-color: #635f5f; /* Cor do fundo */
+    color: #fff; /* Cor do Texto */
+    font-family: sans-serif; /* Fonte do Texto */
+    font-weight: bold; /* Texto em negrito */
+    text-align: center; /* Texto Centralizado */
+    border-radius: 10px; /* Bordas arrendondadas */
+    padding: 16px; /* Padding */
+    position: fixed; /* Mostra no topo */
+    z-index: 10010; /* Pode-se configurar a ordem de exibição */
+    left: 50%; /* Ajuda a centralizar a snackbar */
+    bottom: 0px; /* Espaço a partir da parte de baixo da tela */
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+/* Mostra a snackbar */
+#snackbar.show {
+    visibility: visible; /* Mostra a snackbar */
+    /* Adiciona animação: Leva 0.5 segundos to fade in e out a snackbar.
+    O processo de fad out dura 2.5 segundos */
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 5s;
+    animation: fadein 0.5s, fadeout 0.5s 5s;
+}
+
+/* Animação com efeito fade a snackbar in e out */
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 0px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 0px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 0px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 0px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}

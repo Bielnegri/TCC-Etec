@@ -1,0 +1,113 @@
+.popup {
+    width: 80%;
+    padding: 15px;
+    left: 0;
+    margin-left: 5%;
+    border: 1px solid rgb(1,82,73);
+    border-radius: 10px;
+    color: #000;
+    background: white;
+    position: absolute;
+    top: 35%;
+    box-shadow: 5px 5px 5px #000;
+    z-index: 10001;
+    font-weight: 700;
+    text-align: center;
+}
+
+.popup-searchcliente {
+    width: 88%;
+    padding: 10px;
+    left: 0;
+    margin-left: 5%;
+    border: 1px solid rgb(1,82,73);
+    border-radius: 10px;
+    color: #000;
+    background: #383A3F;
+    position: absolute;
+    top: 15%;
+    box-shadow: 5px 5px 5px #000;
+    z-index: 10001;
+    font-weight: 700;
+    text-align: center;
+}
+  
+.overlay {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,.85);
+    z-index: 10000;
+    display :none;
+}
+  
+@media (min-width: 768px) {
+    .popup {
+      width: 66.66666666%;
+      margin-left: 16.666666%;
+    }
+}
+@media (min-width: 992px) {
+    .popup {
+      width: 80%;
+      margin-left: 25%;
+    }
+}
+@media (min-width: 1200px) {
+    .popup {
+      width: 33.33333%;
+      margin-left: 33.33333%;
+    }
+}
+  
+.dialog-btn-confirm {
+    background-color:#08d;
+    color: white;
+    font-weight: 700;
+    border: 1px solid #08d;
+    border-radius: 10px;
+    height: 40px;
+    width: 30%;
+}
+.dialog-btn-confirm:hover {
+    background-color:#06c;
+    cursor: pointer;
+}
+
+.dialog-btn-cancel {
+    background-color:#ff3f3f;
+    color: white;
+    font-weight: 700;
+    border: 1px solid #ff3f3f;
+    border-radius: 10px;
+    height: 40px;
+    width: 30%;
+}
+.dialog-btn-cancel:hover {
+    background-color:#f32828;
+    cursor: pointer;
+}
+
+.dialog-input {
+    background-color: #e5e5e5;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #555;
+    font-size: 18px;
+    height: 100%;
+    outline: 0;
+    padding: 4px 10px 0;
+    width: 100%;
+}
+
+.dialog-input-container {
+    height: 50px;
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom:20px;
+}

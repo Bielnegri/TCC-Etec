@@ -1,0 +1,365 @@
+table {
+    display: grid;
+    width: 95%;
+    border-collapse: collapse;
+    background: #e5e5e5;
+    border-bottom: 1px solid #999;
+    grid-template-columns: 
+        minmax(150px, 1fr)
+        minmax(150px, 1.67fr)
+        minmax(150px, 1.67fr)
+        minmax(150px, 1.67fr)
+        minmax(150px, 3.33fr)
+        minmax(150px, 1.67fr)
+        minmax(150px, 3.33fr)
+        minmax(150px, 1.67fr);
+}
+
+thead,
+tbody,
+tr {
+    display: contents;
+}
+
+th,
+td {
+    border-top: 1px solid #999;
+    border-right: 1px solid #999;
+    border-collapse: collapse;
+    padding: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+th {
+    position: sticky;
+    top: 0;
+    background: #B3D2C1;
+    text-align: left;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #555;
+    text-align: center;
+}
+
+td {
+    color: #808080;
+}
+
+tr:nth-child(odd) td {
+    background: #FFF;
+}
+
+tr:nth-child(even) td {
+    background: #f5f5f5;
+}
+
+th:first-child {
+    border-left: 1px solid #999;
+}
+
+td:first-child {
+    border-left: 1px solid #999;
+}
+
+.barTitulo {
+    border: 0px !important;
+    text-align: center;
+    grid-column: 1 / 5; /* span from grid column line 1 to 3 (i.e., span 2 columns) */
+    height: 10px;
+    background: #e5e5e5!important;
+    font-size: 22px;
+    font-weight: bold;
+    color: #555;
+}
+
+.barButton {
+    border: 0px !important;
+    grid-column: 1 / 5; /* span from grid column line 1 to 3 (i.e., span 2 columns) */
+    height: 28px;
+    background: #e5e5e5 !important;
+    padding: 2px 0px 10px 2px !important;
+}
+
+.regBranco {
+    grid-column: 1 / 5; /* span from grid column line 1 to 3 (i.e., span 2 columns) */
+    background: #FFF !important;
+    font-weight: bold;
+    text-align: center;
+}
+
+tbody > tr:hover > td {
+    background: #B4CDD6 !important;
+}
+
+.btnAdd {
+    background-color: #08d;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 8px 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Darker background on mouse-over */
+.btnAdd:hover {
+    background-color: #06c;
+}
+
+.btnItems {
+    background-color: #08d;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 8px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Darker background on mouse-over */
+.btnItems:hover {
+    background-color: #06c;
+}
+
+.btnItems:disabled {
+    background-color: #cccccc;
+    color: #666666;
+}
+
+.btnEdit {
+    background-color: #5cb85c;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+/* Darker background on mouse-over */
+.btnEdit:hover {
+    background-color: #449d44;
+}
+
+.btnEdit:disabled {
+    background-color: #cccccc;
+    color: #666666;
+}
+
+.btnStatus {
+    background-color: #FFF700;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+/* Darker background on mouse-over */
+.btnStatus:hover {
+    background-color: #FFDC00;
+}
+
+.btnStatus:disabled {
+    background-color: #cccccc;
+    color: #666666;
+}
+
+.btnDel {
+    background-color: #ff3f3f;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+/* Darker background on mouse-over */
+.btnDel:hover {
+    background-color: #f72929;
+}
+
+.btnDel:disabled {
+    background-color: #cccccc;
+    color: #666666;
+}
+
+.td-action {
+    padding: 5px !important;
+    text-align: center;
+}
+
+.textRight {
+    text-align: right;
+}
+
+.textCenter {
+    text-align: center;
+}
+
+.textRed {
+    color: #FF0000;
+}
+
+.textBlue {
+    color: #4c00ff;
+}
+
+.textBold {
+    font-weight: bold;
+}
+
+.tableUsuario{
+    grid-template-columns: 10% 40% 40% 10%;
+}
+.barTituloUsuario{
+    grid-column: 1 / 5; /* span from grid column line 1 to 3 (i.e., span 2 columns) */
+}
+.barButtonUsuario{
+    grid-column: 1 / 5; /* span from grid column line 1 to 3 (i.e., span 2 columns) */
+}
+.regBrancoUsuario{
+    grid-column: 1 / 5; /* span from grid column line 1 to 3 (i.e., span 2 columns) */
+}
+
+.tableProduto{
+    grid-template-columns: 8% 31% 32% 10% 9% 10%;
+}
+.barTituloProduto{
+    grid-column: 1 / 7; /* span from grid column line 1 to 3 (i.e., span 2 columns) */
+}
+.barButtonProduto{
+    grid-column: 1 / 7; /* span from grid column line 1 to 3 (i.e., span 2 columns) */
+}
+.regBrancoProduto{
+    grid-column: 1 / 7; /* span from grid column line 1 to 3 (i.e., span 2 columns) */
+}
+
+.tableCliente {
+    grid-template-columns: 8% 32% 12% 10% 20% 8% 10%;
+}
+.barTituloCliente{
+    grid-column: 1 / 8; /* span from grid column line 1 to 3 (i.e., span 2 columns) */
+}
+.barButtonCliente{
+    grid-column: 1 / 8; /* span from grid column line 1 to 3 (i.e., span 2 columns) */
+}
+.regBrancoCliente{
+    grid-column: 1 / 8; /* span from grid column line 1 to 3 (i.e., span 2 columns) */
+}
+
+.tableSearchCliente {
+    width: 100%;
+    grid-template-columns: 10% 50% 20% 20%;
+}
+.barTituloSearchCliente{
+    padding-bottom: 20px !important;
+    grid-column: 1 / 5; /* span from grid column line 1 to 3 (i.e., span 2 columns) */
+}
+.barButtonSearchCliente{
+    background-color: white;
+    height: 55px;
+    grid-column: 1 / 5; /* span from grid column line 1 to 3 (i.e., span 2 columns) */
+}
+.regBrancoSearchCliente{
+    grid-column: 1 / 5; /* span from grid column line 1 to 3 (i.e., span 2 columns) */
+}
+
+.tableSearchProduto {
+    width: 100%;
+    grid-template-columns: 10% 35% 35% 10% 10%;
+}
+.barTituloSearchProduto{
+    padding-bottom: 20px !important;
+    grid-column: 1 / 6; /* span from grid column line 1 to 3 (i.e., span 2 columns) */
+}
+.barButtonSearchProduto{
+    background-color: white;
+    height: 55px;
+    grid-column: 1 / 6; /* span from grid column line 1 to 3 (i.e., span 2 columns) */
+}
+.regBrancoSearchProduto{
+    grid-column: 1 / 6; /* span from grid column line 1 to 3 (i.e., span 2 columns) */
+}
+
+.tablePedido {
+    grid-template-columns: 6% 9% 33% 10% 10% 10% 12% 10%;
+}
+.barTituloPedido{
+    grid-column: 1 / 9; /* span from grid column line 1 to 3 (i.e., span 2 columns) */
+}
+.barButtonPedido{
+    grid-column: 1 / 9; /* span from grid column line 1 to 3 (i.e., span 2 columns) */
+}
+.regBrancoPedido{
+    grid-column: 1 / 9; /* span from grid column line 1 to 3 (i.e., span 2 columns) */
+}
+
+
+.table-wrapper
+{
+    margin-top: 10px;
+    overflow-y: auto; /* make the table scrollable if height is more than 200 px  */
+    height: 215px; /* gives an initial height of 200px to the table */
+}
+
+.table-wrapper thead tr th {
+    position: sticky; /* make the table heads sticky */
+    top: 0px; /* table head will be placed from the top of the table and sticks to it */
+}
+
+.tableItemsPedido {
+    width: 100%;
+    border-collapse: collapse;
+    grid-template-columns: 7% 30% 10% 9% 10% 9% 10% 10% 5%;
+}
+
+.tableItemsPedido th {
+    font-size: 11px;
+}
+
+.tableItemsPedido td {
+    font-size: 12px;
+    padding: 2px !important;
+}
+
+.tableItemsPedido td input{
+    width: 99%;
+    text-align: right;
+}
+
+.barButtonItemsPedido{
+    font-size: 10px;
+    background-color: #B4CDD6 !important;
+    grid-column: 1 / 10; /* span from grid column line 1 to 3 (i.e., span 2 columns) */
+}
+.regBrancoItemsPedido{
+    grid-column: 1 / 10; /* span from grid column line 1 to 3 (i.e., span 2 columns) */
+}
+
+.hidden {
+    display:none;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}

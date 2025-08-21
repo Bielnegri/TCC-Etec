@@ -1,0 +1,101 @@
+CREATE DATABASE Banco23;
+
+USE Banco23;
+
+CREATE TABLE `clientes` (
+  `codigo` int(10) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) DEFAULT NULL,
+  `cpf` varchar(14) DEFAULT NULL,
+  PRIMARY KEY (`codigo`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `enderecos` (
+  `codigo` int(10) NOT NULL AUTO_INCREMENT,
+  `pais` varchar(50) DEFAULT NULL,
+  `estado` varchar(50) DEFAULT NULL,
+  `cidade` varchar(50) DEFAULT NULL,
+  `bairro` varchar(50) DEFAULT NULL,
+  `rua` varchar(50) DEFAULT NULL,
+  `numero` varchar(50) DEFAULT NULL,
+  `complemento` varchar(50) DEFAULT NULL,
+  `cep` varchar(9) DEFAULT NULL,
+  `clienteId` int(10) DEFAULT NULL,
+  PRIMARY KEY (`codigo`),
+  KEY `clienteIdEnd` (`clienteId`),
+  CONSTRAINT `fk_clienteIdEnd` FOREIGN KEY (`clienteId`) REFERENCES `clientes` (`codigo`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `telefones` (
+  `codigo` int(10) NOT NULL AUTO_INCREMENT,
+  `numero` varchar(50) DEFAULT NULL,
+  `clienteId` int(10) DEFAULT NULL,
+  PRIMARY KEY (`codigo`),
+  KEY `clienteIdTel` (`clienteId`),
+  CONSTRAINT `fk_clienteIdTel` FOREIGN KEY (`clienteId`) REFERENCES `clientes` (`codigo`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `produtos` (
+  `codigo` int(10) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(50) NOT NULL,
+  `descricao` text NOT NULL,
+  `valor` decimal(10,2) NOT NULL,
+  `quantidade` int(10) NOT NULL,
+  PRIMARY KEY (`codigo`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `usuarios` (
+  `codigo` int(10) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) DEFAULT NULL,
+  `usuario` varchar(50) DEFAULT NULL,
+  `senha` varchar(50) DEFAULT NULL,
+  `direitos` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`codigo`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `pedidos` (
+  `codigo` int(10) NOT NULL AUTO_INCREMENT,
+  `datapedido` date DEFAULT NULL,
+  `entrega` date DEFAULT NULL,
+  `cliente` int(10) DEFAULT NULL,
+  `vendedor` int(10) DEFAULT NULL,
+  `formapagamento` int(10) DEFAULT NULL,
+  `valortotalprodutos` double(10,2) DEFAULT '0.00',
+  `valortotaldesconto` double(10,2) DEFAULT '0.00',
+  `valortotalpedido` double(10,2) DEFAULT '0.00',
+  `status` int(10) DEFAULT 0,
+  PRIMARY KEY (`codigo`),
+  KEY `clienteIdPedido` (`cliente`),
+  KEY `usuarioIdPedido` (`vendedor`),
+  CONSTRAINT `fk_clienteIdPedido` FOREIGN KEY (`cliente`) REFERENCES `clientes` (`codigo`),
+  CONSTRAINT `fk_usuarioIdPedido` FOREIGN KEY (`vendedor`) REFERENCES `usuarios` (`codigo`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `itemspedido` (
+  `codigo` int(10) NOT NULL AUTO_INCREMENT,
+  `pedido` int(10) DEFAULT NULL,
+  `produto` int(10) DEFAULT NULL,
+  `quantidade` int(10) DEFAULT NULL,
+  `valorunitario` double(10,2) DEFAULT '0.00',
+  `valorprodutos` double(10,2) DEFAULT '0.00',
+  `porcentagemdesconto` double(10,2) DEFAULT '0.00',
+  `valordesconto` double(10,2) DEFAULT '0.00',
+  `valortotal` double(10,2) DEFAULT '0.00',
+  PRIMARY KEY (`codigo`),
+  KEY `pedidoIdItens` (`pedido`),
+  KEY `produtoIdItens` (`produto`),
+  CONSTRAINT `fk_pedidoIdItens` FOREIGN KEY (`pedido`) REFERENCES `pedidos` (`codigo`),
+  CONSTRAINT `fk_produtoIdItens` FOREIGN KEY (`produto`) REFERENCES `produtos` (`codigo`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+
+
+INSERT INTO usuarios (nome, usuario, senha, direitos)
+values("Gabriel", "Negri", "1234", "CLI,PED,PRO,USU");
+
+
+-- Se Precisar dar truncate na tabela pedidos
+SET FOREIGN_KEY_CHECKS = 0; 
+
+TRUNCATE TABLE pedidos;
+
+SET FOREIGN_KEY_CHECKS = 1;
